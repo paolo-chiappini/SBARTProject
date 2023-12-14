@@ -6,11 +6,12 @@ get_terminal_nodes <- function(tree) {
 get_gen2_internal_nodes <- function(tree) {
     terminal_nodes <- get_terminal_nodes(tree)
     gen2_internal_nodes <- which(table(tree$parent[terminal_nodes]) == 2)
-    return(gen2_internal_nodes)
+    gen2_internal_nodes <- as.integer(names(gen2_internal_nodes)) # necessary due to the fact that table gives names to vector elements 
+    return(gen2_internal_nodes) 
 }
 
-get_node_depth <- function(tree, node.index) {
-    node_position <- tree$position[node.index]
+get_node_depth <- function(tree, node_index) {
+    node_position <- tree$position[node_index]
     depth <- floor(log2(node_position))
     return(depth)
 }
@@ -64,7 +65,7 @@ grow_log_likelihood_ratio <- function(
 grow_log_structure_ratio <- function(
     alpha, 
     beta,
-    node_to_grow_index
+    node_to_grow_index,
     current_tree
 ) {
     depth <- get_node_depth(current_tree, node_to_grow_index)
@@ -106,7 +107,7 @@ prune_log_likelihood_ratio <- function(
 prune_log_structure_ratio <- function(
     alpha, 
     beta,
-    node_to_grow_index
+    node_to_grow_index,
     current_tree
 ) {
     log_structure_ratio <- -grow_log_structure_ratio(alpha, beta, node_to_grow_index, current_tree)
