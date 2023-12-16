@@ -1,7 +1,7 @@
 rm(list = ls())
 
 # CHANGE THIS PATH TO YOUR LOCAL PATH
-setwd("C:/Users/camil/OneDrive - Universidad del Norte/Universidad POLIMI/Bayesian stats/CODE Bart/SBARTProject") 
+setwd("/home/paolo/Bayesian_Statistics/Project23-24/SBARTProject") 
 
 if(!require("devtools")) install.packages("devtools", repos = "http://cran.us.r-project.org", dependencies = TRUE)
 if(!require("testthat")) install.packages("testthat", repos = "http://cran.us.r-project.org", dependencies = TRUE)
@@ -10,6 +10,7 @@ library(testthat)
 test_dir("__tests__/data")
 test_dir("__tests__/R/SBART")
 test_dir("__tests__/R/SBART/MCMC")
+test_dir("__tests__/R/SBART/MCMC/alterations")
 
 # --------------------------------------------------
 

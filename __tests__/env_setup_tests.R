@@ -6,5 +6,5 @@ if (Sys.getenv("GITHUB_ACTIONS") == "true") {
   setwd("/home/runner/work/SBARTProject/SBARTProject")
 } else {
   # Set the working directory for your local machine
-  setwd("C:/Users/camil/OneDrive - Universidad del Norte/Universidad POLIMI/Bayesian stats/CODE Bart/SBARTProject") 
+  setwd("/home/paolo/Bayesian_Statistics/Project23-24/SBARTProject") 
 }
